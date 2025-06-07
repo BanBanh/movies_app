@@ -13,8 +13,6 @@ class WidgetTree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<bool>(
-      // Assuming you have a loadingNotifier in your notifier file
-      // If not, you'll need to create one
       valueListenable: loadingNotifier,
       builder: (context, isLoading, _) {
         if (isLoading) {

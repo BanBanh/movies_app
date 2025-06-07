@@ -25,7 +25,6 @@ class _DetailPageState extends State<DetailPage> {
   void initState() {
     super.initState();
     int id = widget.id;
-    // int id = 634649;
     _getInfo(id);
     // Make time for data to fletch
     _loaded = Future.delayed(Duration(milliseconds: 700), () => true);

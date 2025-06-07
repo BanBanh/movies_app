@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movies_app/data/api/models/movie.dart';
-import 'package:movies_app/data/api/models/watchlist.dart';
 import 'package:movies_app/data/notifier.dart';
 import 'package:movies_app/views/pages/detail_page.dart';
 
