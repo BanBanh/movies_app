@@ -24,14 +24,7 @@ class _MyAppState extends State<MyApp> {
         highlightColor: Color(0xFF0296E5),
       ),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Color(0xFF242A32),
-        body: Builder(
-          builder: (context) {
-            return WidgetTree();
-          },
-        ),
-      ),
+      home: WidgetTree(),
     );
   }
 }
