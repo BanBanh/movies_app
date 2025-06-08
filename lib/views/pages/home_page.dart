@@ -190,7 +190,7 @@ class CarouselItem extends StatelessWidget {
                 style: GoogleFonts.montserrat(
                   fontSize: 96,
                   fontWeight: FontWeight.w600,
-                  color: Color(0xFF242A32),
+                  color: Color(0xFFFFFFFF),
                 ),
               ),
             ),

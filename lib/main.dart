@@ -28,3 +28,6 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
+// TODO: watchlist save on local
+// image place holder for poster image

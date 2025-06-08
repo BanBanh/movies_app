@@ -25,6 +25,8 @@ class SearchPage extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
+                  //TODO: text field text is not center
+                  // Text cursor color
                   child: TextField(
                     controller: searchTextController,
                     style: GoogleFonts.poppins(
