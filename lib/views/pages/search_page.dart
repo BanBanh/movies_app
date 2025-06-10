@@ -16,6 +16,12 @@ class _SearchPageState extends State<SearchPage> {
   bool isSearched = false;
 
   @override
+  void initState() {
+    super.initState();
+    searchMoviesOnTap();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -44,12 +50,12 @@ class _SearchPageState extends State<SearchPage> {
                     hintText: 'Search',
                     hintStyle: TextStyle(color: Color(0xFF67686D)),
                   ),
-                  onSubmitted: _searchMovies,
+                  onSubmitted: searchMoviesOnSubmitted,
                 ),
               ),
               GestureDetector(
                 child: Icon(Icons.search, color: Color(0xFF67686D)),
-                onTap: _searchMoviess,
+                onTap: searchMoviesOnTap,
               ),
             ],
           ),
@@ -298,7 +304,7 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 
-  void _searchMoviess() async {
+  void searchMoviesOnTap() async {
     if (searchTextController.text.isEmpty) {
       setState(() {
         isSearched = false;
@@ -316,8 +322,8 @@ class _SearchPageState extends State<SearchPage> {
     }
   }
 
-  void _searchMovies(_) async {
-    _searchMoviess();
+  void searchMoviesOnSubmitted(_) async {
+    searchMoviesOnTap();
   }
 }
 

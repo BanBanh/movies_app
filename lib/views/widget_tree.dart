@@ -16,7 +16,16 @@ class WidgetTree extends StatelessWidget {
       valueListenable: loadingNotifier,
       builder: (context, isLoading, _) {
         if (isLoading) {
-          return const Scaffold(body: Center(child: Text('Loading')));
+          return Scaffold(
+            body: Center(
+              child: Image.asset(
+                width: 189,
+                height: 189,
+                fit: BoxFit.contain,
+                'assets/images/popcorn.png',
+              ),
+            ),
+          );
         }
 
         return ValueListenableBuilder<int>(

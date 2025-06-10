@@ -18,7 +18,11 @@ Future<void> initializeMovieLists() async {
     _fetchList('Top Rated', tmdb.v3.movies.getTopRated()),
     _fetchList('Popular', tmdb.v3.movies.getPopular()),
   ]);
-  loadingNotifier.value = false;
+  loadingNotifier.value = await Future.delayed(
+    Duration(seconds: 1),
+    () => false,
+  );
+  ;
 }
 
 // Helper to fetch and parse a single list

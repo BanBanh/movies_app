@@ -1,6 +1,5 @@
 import 'package:movies_app/data/api/api.dart';
 import 'package:movies_app/data/api/models/movie.dart';
-import 'package:movies_app/data/notifier.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 const String _watchlistKey = 'user_watchlist';

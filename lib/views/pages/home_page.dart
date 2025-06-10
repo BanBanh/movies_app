@@ -54,15 +54,12 @@ class HomePage extends StatelessWidget {
                           hintText: 'Search',
                           hintStyle: TextStyle(color: Color(0xFF67686D)),
                         ),
-                        onSubmitted: (_) => searchMovies(),
+                        onSubmitted: (_) => selectedPageNotifier.value = 1,
                       ),
                     ),
                     GestureDetector(
                       child: Icon(Icons.search, color: Color(0xFF67686D)),
-                      onTap: () {
-                        selectedPageNotifier.value = 1;
-                        searchMovies();
-                      },
+                      onTap: () => selectedPageNotifier.value = 1,
                     ),
                   ],
                 ),
