@@ -177,9 +177,6 @@ class _DetailPageState extends State<DetailPage> {
                     builder: (context) {
                       return GestureDetector(
                         onTap: () {
-                          // TODO: add rating
-                          //https://api.themoviedb.org/3/movie/{movie_id}/rating
-                          // tmdb.v3.movies.rateMovie(movieId, ratingValue)
                           Scaffold.of(context).showBottomSheet((context) {
                             return StatefulBuilder(
                               builder: (
