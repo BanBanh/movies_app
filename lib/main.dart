@@ -19,6 +19,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.white),
         scaffoldBackgroundColor: Color(0xFF242A32),
         navigationBarTheme: NavigationBarThemeData(),
         highlightColor: Color(0xFF0296E5),

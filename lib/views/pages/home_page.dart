@@ -6,7 +6,7 @@ import 'package:movies_app/data/notifier.dart';
 import 'package:movies_app/views/pages/detail_page.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +37,12 @@ class HomePage extends StatelessWidget {
                   color: Color(0xFF3A3F47),
                 ),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Expanded(
+                    SizedBox(
+                      width: 250,
+                      height: 27,
                       child: TextField(
                         controller: searchTextController,
                         style: GoogleFonts.poppins(

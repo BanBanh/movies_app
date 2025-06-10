@@ -64,9 +64,6 @@ class _WatchListPageState extends State<WatchListPage> {
             child: Column(
               children:
                   watchListMovies.map((movie) {
-                    // if (movie.firstGenreName == null) {
-                    //   return Container(child: Text('error'));
-                    // }
                     try {
                       return GestureDetector(
                         onTap: () {
@@ -201,7 +198,7 @@ class _WatchListPageState extends State<WatchListPage> {
                     } catch (e) {
                       print(e);
                     }
-                    return Container(child: Text('error'));
+                    return Text('error');
                   }).toList(),
             ),
           );
