@@ -17,17 +17,24 @@ Map<dynamic, dynamic> details = {};
 Map<dynamic, dynamic> reviews = {};
 Map<dynamic, dynamic> credits = {};
 dynamic personImg;
+bool _isInWatchList = true;
+bool _loaded = false;
 
 class _DetailPageState extends State<DetailPage> {
-  late Future<bool> _loaded;
-
   @override
   void initState() {
     super.initState();
     int id = widget.id;
     _getInfo(id);
+    _watchListState();
     // Make time for data to fletch
-    _loaded = Future.delayed(Duration(milliseconds: 700), () => true);
+  }
+
+  Future<void> _watchListState() async {
+    final bool result = await isInWatchList(movieId: widget.id);
+    setState(() {
+      _isInWatchList = result;
+    });
   }
 
   Future<void> _getInfo(id) async {
@@ -38,6 +45,7 @@ class _DetailPageState extends State<DetailPage> {
       details = getDetails;
       reviews = getReviews;
       credits = getCredits;
+      _loaded = true;
     });
   }
 
@@ -71,29 +79,25 @@ class _DetailPageState extends State<DetailPage> {
         actions: [
           IconButton(
             onPressed: () async {
-              //TODO: add watch list
-              addToWatchlist(movieId: widget.id);
+              _isInWatchList
+                  ? removeFromWatchList(movieId: widget.id)
+                  : addToWatchlist(movieId: widget.id);
+              setState(() {
+                _isInWatchList = !_isInWatchList;
+              });
             },
-            icon: Icon(Icons.bookmark, color: Color(0xFFEEEEEE)),
+            icon:
+                _isInWatchList
+                    ? Icon(Icons.bookmark, color: Color(0xFFEEEEEE))
+                    : Icon(Icons.bookmark_border, color: Color(0xFFEEEEEE)),
           ),
         ],
       ),
       // body: mainBody(),
-      body: FutureBuilder<bool>(
-        future: _loaded,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done &&
-              snapshot.data == true) {
-            return mainBody(); // Actual content
-          }
-          return Center(
-            child: Text(
-              'Loading',
-              style: TextStyle(color: Colors.white, fontSize: 24),
-            ),
-          ); // loading
-        },
-      ),
+      body:
+          _loaded
+              ? mainBody()
+              : Center(child: CircularProgressIndicator(color: Colors.white)),
     );
   }
 

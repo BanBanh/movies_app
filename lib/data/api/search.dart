@@ -4,7 +4,6 @@ import 'package:movies_app/data/api/models/movie.dart';
 
 final searchTextController = TextEditingController();
 ValueNotifier<List<Movie>> searchResultsNotifier = ValueNotifier([]);
-
 Future<void> searchMovies() async {
   final String query = searchTextController.text;
   if (searchTextController.text.isEmpty) {
